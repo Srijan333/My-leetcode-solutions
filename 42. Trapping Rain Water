@@ -1,0 +1,23 @@
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        l=len(height)
+        a=0
+        s=0
+        w=0
+        for i in range(l-1):
+            if(height[i]!=0):
+                s=i
+                break
+        i=s
+        for i in range(1,l-1):
+            d=min(max(height[0:i]),max(height[i+1:l]))
+            a=d-height[i]
+            w=w+max(a,0)
+        
+
+        return w
+            
+
+            
+            
+        
