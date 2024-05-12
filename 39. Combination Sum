@@ -1,0 +1,37 @@
+class Solution:
+    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+
+        l=len(candidates)
+        res=[]
+        ans=[]
+        
+        def backt(summ):
+            if(summ==target):
+                res.append(list(ans))
+                return
+            if(summ>target):
+                return
+            
+            for i in candidates:
+                ans.append(i)
+                summ=summ+i
+                backt(summ)
+                summ=summ-i
+                ans.pop()
+        backt(0)
+        print(res)
+        res1=[]
+        for i in res:
+            i.sort()
+            if i not in res1:
+                res1.append(i)
+        
+
+        print(res1)
+        return res1
+
+
+            
+
+
+        
